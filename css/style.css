@@ -117,7 +117,7 @@ a:hover {
   }
 }
 .multi-column .cv-item {
-  margin-bottom: 24px;
+  margin-bottom: 0px;
 }
 @media (min-width: 992px) {
   .multi-column .cv-item {
@@ -422,7 +422,7 @@ a:hover {
 .content h3 {
   margin-top: 0px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: bold;©
 }
 .content h4 {
   font-size: 14px;
@@ -443,8 +443,8 @@ a:hover {
 }
 .cv-item + .cv-item {
   border-top: 1px solid #E0E0E0;
-  margin-top: 48px;
-  padding-top: 48px;
+  margin-top: 12px;
+  padding-top: 24px;
 }
 .cv-item.list {
   border: none;
