@@ -1,659 +1,432 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Zixuan Feng Personal Page</title>
 <meta name="description" content="Zixuan Feng Personal Page">
-<meta name="keywords" content="Zixuan Feng Personal Page">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flash.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
-
-<!-- prod -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/themes/themes.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="math_integral_box_icon_135416.ico" />
-<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #111;
+  background: #fff;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 32px 100px;
+}
+a { color: #111; }
+a:hover { color: #555; }
+
+.header-wrap {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 36px;
+  align-items: start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 48px;
+}
+@media (max-width: 560px) { .header-wrap { grid-template-columns: 1fr; } }
+
+.profile-img img {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #e8e8e8;
+}
+
+.header-info h2 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+.header-info .title { font-size: 13px; color: #666; margin-bottom: 14px; }
+.header-links { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+.header-links a {
+  font-size: 13px; color: #444; text-decoration: none;
+  border-bottom: 1px solid #ccc; padding-bottom: 1px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.header-links a:hover { color: #111; border-color: #111; }
+
+.bio-text {
+  font-size: 14px; line-height: 1.8; color: #333;
+  grid-column: 1 / -1;
+}
+.bio-text strong { font-weight: 500; color: #111; }
+
+section { margin-bottom: 52px; }
+
+.section-title {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #999;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: #e8e8e8; }
+
+.pub-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pub-item:first-child { border-top: 1px solid #f0f0f0; }
+
+.pub-status {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #888; margin-bottom: 4px;
+}
+.pub-item h3 {
+  font-family: 'Crimson Pro', serif; font-size: 16px; font-weight: 600;
+  line-height: 1.4; margin-bottom: 4px;
+}
+.pub-item h3 a { text-decoration: none; color: #111; }
+.pub-item h3 a:hover { color: #555; }
+.pub-authors { font-size: 13px; color: #666; margin-bottom: 2px; }
+.pub-venue { font-size: 13px; color: #555; font-style: italic; }
+.pub-note { font-size: 12px; color: #999; margin-top: 2px; }
+.pub-award {
+  display: inline-block; font-size: 11px; font-weight: 500;
+  background: #fffbf0; border: 1px solid #f0d070; color: #856a00;
+  padding: 1px 8px; border-radius: 3px; margin-top: 4px;
+}
+.pub-collapsed { display: none; }
+
+.show-more-row { text-align: center; padding: 20px 0 0; }
+.show-more-btn {
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.05em; color: #666; background: none;
+  border: 1px solid #ddd; padding: 7px 20px; border-radius: 4px;
+  cursor: pointer; transition: all 0.15s;
+}
+.show-more-btn:hover { border-color: #999; color: #111; }
+
+.talk-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.talk-item:first-child { border-top: 1px solid #f0f0f0; }
+.talk-item h3 { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+.talk-item .talk-sub { font-size: 13px; color: #666; }
+
+.service-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.service-item:first-child { border-top: 1px solid #f0f0f0; }
+.service-item h3 { font-size: 14px; font-weight: 500; }
+.service-item h4 { font-size: 13px; color: #666; font-weight: 400; margin-top: 1px; }
+.service-item ul { margin: 6px 0 0 16px; font-size: 13px; color: #555; }
+.service-item p { font-size: 13px; color: #555; margin-top: 4px; }
+
+.edu-item {
+  display: grid; grid-template-columns: 140px 1fr; gap: 16px;
+  padding: 12px 0; border-bottom: 1px solid #f0f0f0; align-items: start;
+}
+.edu-item:first-child { border-top: 1px solid #f0f0f0; }
+.edu-year { font-size: 12px; color: #999; padding-top: 2px; }
+.edu-deg { font-size: 14px; font-weight: 500; }
+.edu-school { font-size: 13px; color: #666; }
+
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e8e8e8; font-size: 12px; color: #bbb; }
+iframe { max-width: 100%; margin-top: 12px; display: block; }
+</style>
 </head>
 <body>
 
-    <div id="page" class="container">
-        
-            <div id="header">
-                <div class="header-binfo cv-section">
-                    <div class="col-md-3">
-                        <div class="img-profile">
-                            <img class="img-thumbnail img-circle" alt="Profile image" width="240" height="240" src="media/profile/img-profile.png">
-                        </div>
-                        <h1>Ph.D Candidate </h1>
-                    </div>
-                    <div class="col-md-9 right">
-                        <h2 style="font-family:cursive;">Steve Feng 冯子轩</h2>
-                        <h4>
-                            Email: <a href="mailto:fengzi@oregonstate.edu">fengzi@oregonstate.edu</a><br/>
-                            <a href="https://scholar.google.com/citations?user=baP6eDwAAAAJ&hl=en">Google Scholar</a> <h4><a href="papers\CV.pdf">CV</a></h4>
-                            
-                        </h4>
-                        <br />
-                       </div>
-My name is Zixuan (Steve) Feng. I am a Ph.D. candidate in Software Engineering (minor in Statistics) at Oregon State University (OSU), advised by Dr. Anita Sarma, and <strong>graduating in June 2026</strong>.<br>
-<br />                    
-Starting in August 2026, I will join the Virginia Commonwealth University (VCU) College of Engineering, Department of Computer Science, as a <strong>tenure-track Assistant Professor</strong>. <br>
-<br />                    
-I collect and analyze data from open-source software (OSS) communities using mixed-methods approaches, combining statistical modeling, grounded theory, and large language models (LLMs), to develop and validate theories about socio-technical collaboration and software sustainability. <br>
-<br />                                       
-More broadly, I am interested in problems and ideas commonly explored in venues such as ICSE, FSE, ASE, TOSEM, EMSE, and related software engineering conferences, especially those involving AI-assisted development, autonomous agents, human–AI collaboration, and socio-technical systems. 
-<br /> 
-And yes! I'm looking for students. Ho ho ho. If you share interests in these areas or are interested in collaboration, please feel free to contact me. (fengz3atvcu.edu) </div>
-
-                </div>
-
-                <div id="content">
-                    <!-- .content - Research -->
-                    <div class="content cv-section">
-                        <div class="col-md-3">
-                            <h2>Publications</h2>
-                        </div>
-                        <div class="col-md-9">
-                            
-                       <div class="cv-item">
-                                <h3><a href="https://arxiv.org/pdf/2508.04921">The Fast and Spurious: Developer Productivity with GenAI</a></h3>
-                                <h4> Accepted </h4>
-                                <br />
-                                <ul>
-                                    <li>Sadia Afroz, Zixuan Feng (Co-first), Tyler Menezes, Katie Kimura, Bianca Trinkenreich, Igor Steinmacher, Anita Sarma</li>
-                                    <li>HumanAISE 2026</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>                            
-                       <div class="cv-item">
-                                <h3><a href="https://arxiv.org/pdf/2508.04921">Charting Uncertain Waters: A Socio-Technical Roadmap for Sustaining Open Source Communities in the Age of GenAI</a></h3>
-                                <h4> Just Accepted (Jan 2026) </h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Reed Milewicz, Emerson Murphy-Hill, Igor Steinmacher, Alexander Serebrenik, Tyler Menezes, Anita Sarma</li>
-                                    <li>ACM Transactions on Software Engineering and Methodology</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
-                            
-                      <div class="cv-item">
-                                <h3><a href="https://arxiv.org/pdf/2510.07435">From Gains to Strains: Modeling Developer Burnout with GenAI</a></h3>
-                                <h4> Just Accepted (Dec 2025) </h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Sadia Afroz, Anita Sarma</li>
-                                    <li>48th International Conference on Software Engineering (ICSE 2026) --- SEIS track</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                      </div>
-                            
-                      <div class="cv-item">
-                                <h3><a href="https://arxiv.org/abs/2602.11447">Addressing OSS Community Managers’ Challenges in Contributor Retention</a></h3>
-                                <h4> Just Accepted (Sep 2025) </h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Katie Kimura, Bianca Trinkenreich, Igor Steinmacher, Marco Gerosa, Anita Sarma</li>
-                                    <li>ACM Transactions on Software Engineering and Methodology</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
-                            <div class="cv-item">
-                                <h3><a href="papers\IST_CommunityTapstery.pdf">Community Tapestry: An Actionable Tool to Track Turnover and Diversity in OSS</a></h3>
-                                <h4> Just Accepted (Aug 2025)</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng; Mariam Guizani (co-first author); Emily Arteaga; Katie Kimura; Diane Mueller; Luis Cañas Díaz; Alexander Serebrenik; Anita Sarma</li>
-                                    <li>Information and Software Technology</li> 
-
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
-                            
-<div class="cv-item">
-  <h3>
-    <a href="https://arxiv.org/pdf/2506.20063">
-      When Domains Collide: An Activity Theory Exploration of Cross-Disciplinary Collaboration
-    </a>
-    <span title="Best Paper Award">🏆</span>
-  </h3>
-
-  <h4>June 2025</h4>
-
-  <ul>
-    <li>
-      Zixuan Feng, Thomas Zimmermann, Lorenzo Pisani, Christopher Gooley, Jeremiah Wander, Anita Sarma
-    </li>
-    <li>
-      The 19th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM 2025)
-      <strong>— Best Paper Award</strong>
-    </li>
-  </ul>
+<div class="header-wrap">
+  <div class="profile-img">
+    <img alt="Profile image" src="media/profile/img-profile.png">
+  </div>
+  <div class="header-info">
+    <h2>Steve Feng 冯子轩</h2>
+    <div class="title">Ph.D Candidate</div>
+    <div class="header-links">
+      <a href="mailto:fengzi@oregonstate.edu">fengzi@oregonstate.edu</a>
+      <a href="https://scholar.google.com/citations?user=baP6eDwAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="papers/CV.pdf">CV</a>
+    </div>
+  </div>
+  <div class="bio-text">
+    My name is Zixuan (Steve) Feng. I am a Ph.D. candidate in Software Engineering (minor in Statistics) at Oregon State University (OSU), advised by Dr. Anita Sarma, and <strong>graduating in June 2026</strong>.<br><br>
+    Starting in August 2026, I will join the Virginia Commonwealth University (VCU) College of Engineering, Department of Computer Science, as a <strong>tenure-track Assistant Professor</strong>.<br><br>
+    I collect and analyze data from open-source software (OSS) communities using mixed-methods approaches, combining statistical modeling, grounded theory, and large language models (LLMs), to develop and validate theories about socio-technical collaboration and software sustainability.<br><br>
+    More broadly, I am interested in problems and ideas commonly explored in venues such as ICSE, FSE, ASE, TOSEM, EMSE, and related software engineering conferences, especially those involving AI-assisted development, autonomous agents, human–AI collaboration, and socio-technical systems.<br><br>
+    And yes! I'm looking for students. Ho ho ho. If you share interests in these areas or are interested in collaboration, please feel free to contact me. (fengz3atvcu.edu)
+  </div>
 </div>
 
+<section>
+  <div class="section-title">Publications</div>
+  <div id="pub-list">
 
-                            
-                            <div class="cv-item">
-                                <h3><a href="https://arxiv.org/pdf/2501.05600">The Multifaceted Nature of Mentoring in OSS: Strategies, Qualities, and Ideal Outcomes</a></h3>
-                                <h4> Jan 2025</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Igor Steinmacher, Marco Gerosa, Tyler Menezes, Alexander Serebrenik, Reed Milewicz, Anita Sarma</li>
-                                    <li>The 18th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2025)</li> 
+    <div class="pub-item">
+      <div class="pub-status">Accepted</div>
+      <h3><a href="https://arxiv.org/pdf/2508.04921">The Fast and Spurious: Developer Productivity with GenAI</a></h3>
+      <div class="pub-authors">Sadia Afroz, Zixuan Feng (Co-first), Tyler Menezes, Katie Kimura, Bianca Trinkenreich, Igor Steinmacher, Anita Sarma</div>
+      <div class="pub-venue">HumanAISE 2026</div>
+    </div>
 
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
+    <div class="pub-item">
+      <div class="pub-status">Just Accepted (Jan 2026)</div>
+      <h3><a href="https://arxiv.org/pdf/2508.04921">Charting Uncertain Waters: A Socio-Technical Roadmap for Sustaining Open Source Communities in the Age of GenAI</a></h3>
+      <div class="pub-authors">Zixuan Feng, Reed Milewicz, Emerson Murphy-Hill, Igor Steinmacher, Alexander Serebrenik, Tyler Menezes, Anita Sarma</div>
+      <div class="pub-venue">ACM Transactions on Software Engineering and Methodology</div>
+    </div>
 
+    <div class="pub-item">
+      <div class="pub-status">Just Accepted (Dec 2025)</div>
+      <h3><a href="https://arxiv.org/pdf/2510.07435">From Gains to Strains: Modeling Developer Burnout with GenAI</a></h3>
+      <div class="pub-authors">Zixuan Feng, Sadia Afroz, Anita Sarma</div>
+      <div class="pub-venue">48th International Conference on Software Engineering (ICSE 2026) — SEIS track</div>
+    </div>
 
-                            
-                        <div class="cv-item">
-                                <h3><a href="https://arxiv.org/pdf/2411.01601">Investigating the Impact of Interpersonal Challenges on Feeling Welcome in OSS</a></h3>
-                                <h4> Nov 2024</h4>
-                                <br />
-                                <ul>
-                                    <li>Bianca Trinkenreich, Zixuan Feng, Rudrajit Choudhuri, Marco Gerosa, Anita Sarma, Igor Steinmacher</li>
-                                    <li>The 47th International Conference on Software Engineering (ICSE 2025)</li> 
+    <div class="pub-item">
+      <div class="pub-status">Just Accepted (Sep 2025)</div>
+      <h3><a href="https://arxiv.org/abs/2602.11447">Addressing OSS Community Managers' Challenges in Contributor Retention</a></h3>
+      <div class="pub-authors">Zixuan Feng, Katie Kimura, Bianca Trinkenreich, Igor Steinmacher, Marco Gerosa, Anita Sarma</div>
+      <div class="pub-venue">ACM Transactions on Software Engineering and Methodology</div>
+    </div>
 
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
+    <div class="pub-item">
+      <div class="pub-status">Just Accepted (Aug 2025)</div>
+      <h3><a href="papers/IST_CommunityTapstery.pdf">Community Tapestry: An Actionable Tool to Track Turnover and Diversity in OSS</a></h3>
+      <div class="pub-authors">Zixuan Feng; Mariam Guizani (co-first author); Emily Arteaga; Katie Kimura; Diane Mueller; Luis Cañas Díaz; Alexander Serebrenik; Anita Sarma</div>
+      <div class="pub-venue">Information and Software Technology</div>
+    </div>
 
-                            
-                        <div class="cv-item">
-                                <h3><a href="papers\IST_2024.pdf">Guiding the way: A systematic literature review on mentoring practices in open source software projects</a></h3>
-                                <h4> April 2024</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Katie Kimura, Bianca Trinkenreich, Anita Sarma, Igor Steinmacher</li>
-                                    <li>Information and Software Technology</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
-                        
-                            <div class="cv-item">
-                                <h3><a href="papers\Newton.pdf">How to Support ML End-User Programmers through a Conversational Agent</a></h3>
-                                <h4> 14 - 20 April 2024</h4>
-                                <br />
-                                <ul>
-                                    <li>Emily Arteaga Garcia, João Felipe Pimentel, Zixuan Feng, Marco Gerosa, Igor Steinmacher, Anita Sarma</li>
-                                    <li>The 46th International Conference on Software Engineering (ICSE 2024)</li> 
-                                    <li><a href="https://conf.researchr.org/track/icse-2024/icse-2024-research-track">Conference</li></a> 
-                                    
-                                    <li>First round acceptance rate: 6%</li>
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                            </div>
+    <div class="pub-item">
+      <div class="pub-status">June 2025</div>
+      <h3><a href="https://arxiv.org/pdf/2506.20063">When Domains Collide: An Activity Theory Exploration of Cross-Disciplinary Collaboration</a></h3>
+      <div class="pub-authors">Zixuan Feng, Thomas Zimmermann, Lorenzo Pisani, Christopher Gooley, Jeremiah Wander, Anita Sarma</div>
+      <div class="pub-venue">The 19th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM 2025)</div>
+      <div><span class="pub-award">🏆 Best Paper Award</span></div>
+    </div>
 
+    <!-- collapsed -->
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Jan 2025</div>
+      <h3><a href="https://arxiv.org/pdf/2501.05600">The Multifaceted Nature of Mentoring in OSS: Strategies, Qualities, and Ideal Outcomes</a></h3>
+      <div class="pub-authors">Zixuan Feng, Igor Steinmacher, Marco Gerosa, Tyler Menezes, Alexander Serebrenik, Reed Milewicz, Anita Sarma</div>
+      <div class="pub-venue">The 18th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2025)</div>
+    </div>
 
-                            
-                        <div class="cv-item">
-                                <h3><a href="https://news.apache.org/foundation/entry/the-state-of-diversity-and-inclusion-in-the-asf-community-a-pulse-check">Promoting and Studying Diversity, Equity, and Inclusion in the ASF Community (Full report)</a></h3>
-                                <h4> September 2023</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng</li>
-                                    <li>Apache Software Foundation Reports and Statements</li> 
-                                    <li><a href="https://news.apache.org/foundation/entry/the-state-of-diversity-and-inclusion-in-the-asf-community-a-pulse-check">Read blog here</li></a> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Nov 2024</div>
+      <h3><a href="https://arxiv.org/pdf/2411.01601">Investigating the Impact of Interpersonal Challenges on Feeling Welcome in OSS</a></h3>
+      <div class="pub-authors">Bianca Trinkenreich, Zixuan Feng, Rudrajit Choudhuri, Marco Gerosa, Anita Sarma, Igor Steinmacher</div>
+      <div class="pub-venue">The 47th International Conference on Software Engineering (ICSE 2025)</div>
+    </div>
 
-                            
-                        <div class="cv-item">
-                                <h3><a href="papers\23_FSE_SRC_Feng.pdf">The State of Survival in OSS: the Impact of Diversity</a></h3>
-                                <h4> 3 - 9 December 2023</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng</li>
-                                    <li>ESEC/FSE 2023 in San Francisco (ESEC/FSE 2023)</li> 
-                                    <li><a href="https://2023.esec-fse.org/track/fse-2023-student-research-competition">Conference</li></a> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">April 2024</div>
+      <h3><a href="papers/IST_2024.pdf">Guiding the way: A systematic literature review on mentoring practices in open source software projects</a></h3>
+      <div class="pub-authors">Zixuan Feng, Katie Kimura, Bianca Trinkenreich, Anita Sarma, Igor Steinmacher</div>
+      <div class="pub-venue">Information and Software Technology</div>
+    </div>
 
-                            
-                            <div class="cv-item">
-                                <h3><a href="papers\state_survival.pdf">OSS Unsung Heroes: Crafting Productive Communities invisibly</a></h3>
-                                <h4> 2 - 6 April 2023</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng</li>
-                                    <li>IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC 2023)</li> 
-                                    <li><a href="https://conf.researchr.org/track/vlhcc-2023/vlhcc-2023-graduate-consortium#event-overview">Conference</li></a> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                            </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">14 - 20 April 2024</div>
+      <h3><a href="papers/Newton.pdf">How to Support ML End-User Programmers through a Conversational Agent</a></h3>
+      <div class="pub-authors">Emily Arteaga Garcia, João Felipe Pimentel, Zixuan Feng, Marco Gerosa, Igor Steinmacher, Anita Sarma</div>
+      <div class="pub-venue">The 46th International Conference on Software Engineering (ICSE 2024)</div>
+      <div class="pub-note">First round acceptance rate: 6%</div>
+    </div>
 
-                            
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">September 2023</div>
+      <h3><a href="https://news.apache.org/foundation/entry/the-state-of-diversity-and-inclusion-in-the-asf-community-a-pulse-check">Promoting and Studying Diversity, Equity, and Inclusion in the ASF Community (Full report)</a></h3>
+      <div class="pub-authors">Zixuan Feng</div>
+      <div class="pub-venue">Apache Software Foundation Reports and Statements</div>
+    </div>
 
-                            
-                            <div class="cv-item">
-                                <h3><a href="https://conf.researchr.org/details/chase-2023/chase-2023-research-track/7/The-State-of-Diversity-and-Inclusion-in-Apache-A-Pulse-Check">The State of Diversity and Inclusion in Apache: A Pulse Check</a></h3>
-                                <h4> 14 - 15 May 2023</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Mariam Guizani, Marco Gerosa, Anita Sarma</li>
-                                    <li>The 16th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2023)</li> 
-                                    <li><a href="https://conf.researchr.org/track/chase-2023/chase-2023-research-track">Conference</li></a> 
-                                    
-                                    <li>Acceptance rate: 30%</li>
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                            </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">3 - 9 December 2023</div>
+      <h3><a href="papers/23_FSE_SRC_Feng.pdf">The State of Survival in OSS: the Impact of Diversity</a></h3>
+      <div class="pub-authors">Zixuan Feng</div>
+      <div class="pub-venue">ESEC/FSE 2023 in San Francisco (ESEC/FSE 2023)</div>
+    </div>
 
-                            <div class="cv-item">
-                                <h3><a href="papers\2022_FSE_implicit_mentoring.pdf">A Case Study of Implicit Mentoring, its Prevalence, and Impact in Apache</a></h3>
-                                <h4>Mon 14 - Fri 18 November 2022</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Amreeta Chatterjee, Anita Sarma, Iftekhar Ahmed</li>
-                                    <li>ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)</li> 
-                                    <li><a href="https://2022.esec-fse.org/track/fse-2022-research-papers#event-overview">Conference</li></a> 
-                                    
-                                    <li>Acceptance rate: 22%</li>
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/NCkqrMcbox0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">2 - 6 April 2023</div>
+      <h3><a href="papers/state_survival.pdf">OSS Unsung Heroes: Crafting Productive Communities invisibly</a></h3>
+      <div class="pub-authors">Zixuan Feng</div>
+      <div class="pub-venue">IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC 2023)</div>
+    </div>
 
-                                <div class="cv-item">
-                                    <h3> <a href="media/pdf/mentoring1.pdf">Implicit Mentoring: The Unacknowledged Developer Efforts in Open Source</a></h3>
-                                    <h4>Feb 23 2022</h4>
-                                    <br />
-                                    <ul>
-                                        <li>Zixuan Feng, Amreeta Chatterjee, Anita Sarma, Iftekhar Ahmed</li>
-                                        
-                                    </ul>
-                                </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">14 - 15 May 2023</div>
+      <h3><a href="https://conf.researchr.org/details/chase-2023/chase-2023-research-track/7/The-State-of-Diversity-and-Inclusion-in-Apache-A-Pulse-Check">The State of Diversity and Inclusion in Apache: A Pulse Check</a></h3>
+      <div class="pub-authors">Zixuan Feng, Mariam Guizani, Marco Gerosa, Anita Sarma</div>
+      <div class="pub-venue">The 16th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2023)</div>
+      <div class="pub-note">Acceptance rate: 30%</div>
+    </div>
 
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Mon 14 - Fri 18 November 2022</div>
+      <h3><a href="papers/2022_FSE_implicit_mentoring.pdf">A Case Study of Implicit Mentoring, its Prevalence, and Impact in Apache</a></h3>
+      <div class="pub-authors">Zixuan Feng, Amreeta Chatterjee, Anita Sarma, Iftekhar Ahmed</div>
+      <div class="pub-venue">ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)</div>
+      <div class="pub-note">Acceptance rate: 22%</div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/NCkqrMcbox0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-               
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Feb 23 2022</div>
+      <h3><a href="media/pdf/mentoring1.pdf">Implicit Mentoring: The Unacknowledged Developer Efforts in Open Source</a></h3>
+      <div class="pub-authors">Zixuan Feng, Amreeta Chatterjee, Anita Sarma, Iftekhar Ahmed</div>
+    </div>
 
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Under Review</div>
+      <h3><a href="papers/JAIS_GlueWork (1).pdf">The Nuts and Bolts of Open Source: A Taxonomy of Glue Work in OSS Projects</a></h3>
+      <div class="pub-authors">Zixuan Feng, Shaokun Fan, Katie Kimura, Julia Furst Morgado, Lorenzo Pisani, Sophia Vargas, Anita Sarma</div>
+      <div class="pub-venue">Journal of the Association for Information Systems (JAIS)</div>
+    </div>
 
-                      <div class="cv-item">
-                                <h3><a href="papers\JAIS_GlueWork (1).pdf">The Nuts and Bolts of Open Source: A Taxonomy of Glue Work in OSS Projects</a></h3>
-                                <h4> Under Review</h4>
-                                <br />
-                                <ul>
-                                    <li>Zixuan Feng, Shaokun Fan, Katie Kimura, Julia Furst Morgado, Lorenzo Pisani, Sophia Vargas, Anita Sarma</li>
-                                    <li>Journal of the Association for Information Systems (JAIS)</li> 
-                                    
-                                    <!-- <li>AR</li> -->
-                                </ul>
-                        </div>
-                            
-                                <div class="cv-item">
-                                    <h3> <a href="papers\SPR829Final-RumbleStrips.pdf">Tech Report: Rumble Strip Design Analysis to Contribute to Low Exterior
-                                        Noise Using Finite Element Modeling</a></h3>
-                                    <h4>Aug 2022</h4>
-                                    <br />
-                                    <ul>
-                                        <li>Zixuan Feng is listed as the first author of the paper in Appendix A and as the second author of the paper in Appendix B.</li>
-                                        
-                                    </ul>
-                                </div>
+    <div class="pub-item pub-collapsed">
+      <div class="pub-status">Aug 2022</div>
+      <h3><a href="papers/SPR829Final-RumbleStrips.pdf">Tech Report: Rumble Strip Design Analysis to Contribute to Low Exterior Noise Using Finite Element Modeling</a></h3>
+      <div class="pub-authors">Zixuan Feng is listed as the first author of the paper in Appendix A and as the second author of the paper in Appendix B.</div>
+    </div>
 
-                            </div>
-                        </div>
-                    <!-- .content - professional profile -->
-                    <div class="content cv-section">
-                        <div class="col-md-3">
-                            <h2>TALK</h2>
-                        </div>
+  </div>
+  <div class="show-more-row">
+    <button class="show-more-btn" id="pubToggle" onclick="togglePubs()">Show all publications ↓</button>
+  </div>
+</section>
 
-                        <div class="col-md-9">
+<section>
+  <div class="section-title">Talk</div>
 
-                            <div class="cv-item">
-                                <h3>The Linux Foundation Open Source Summit North America 2024</h3>
-                                <h4>Navigating the Growing Diversity Challenges in OSS - Zixuan Feng, Oregon State University & Diane Mueller, Bitergia </h4>
-                                <li><a href="https://ossna2024.sched.com/event/1aBPL/navigating-the-growing-diversity-challenges-in-oss-zixuan-feng-oregon-state-university-diane-mueller-bitergia?iframe=no&w=100%&sidebar=yes&bg=no">Read Abstract</li></a> 
-                                <br />
-                            </div>
+  <div class="talk-item">
+    <h3>The Linux Foundation Open Source Summit North America 2024</h3>
+    <div class="talk-sub">Navigating the Growing Diversity Challenges in OSS — Zixuan Feng, Oregon State University &amp; Diane Mueller, Bitergia &nbsp;<a href="https://ossna2024.sched.com/event/1aBPL/navigating-the-growing-diversity-challenges-in-oss-zixuan-feng-oregon-state-university-diane-mueller-bitergia?iframe=no&w=100%&sidebar=yes&bg=no">Read Abstract</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>The Linux Foundation Open Source Summit North America 2024</h3>
+    <div class="talk-sub">Beyond Code: Recognizing the Crucial Role of 'Glue Work' in Open Source — Zixuan Feng, Oregon State University &amp; Julia Furst, Veeam &nbsp;<a href="https://ossna2024.sched.com/event/1aBPg/beyond-code-recognizing-the-crucial-role-of-glue-work-in-open-source-zixuan-feng-oregon-state-university-julia-furst-veeam?iframe=no&w=100%&sidebar=yes&bg=no">Read Abstract</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>Student Research Competition (SRC) (FSE 2023)</h3>
+    <div class="talk-sub">The State of Survival in OSS: The Impact of Diversity &nbsp;<a href="papers/Zixua Feng.pdf">Certificate of Recognition</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>Linux Plumber Conference (Linux 2023)</h3>
+    <div class="talk-sub">OSS Empowering Engagement: Introducing a Dynamic Dashboard for Proactive Retention Strategies &nbsp;<a href="https://lpc.events/event/17/contributions/1562/">Industrial conference</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>Graduate Consortium (VL/HCC 2024)</h3>
+    <div class="talk-sub">OSS Unsung Heroes: Crafting Productive Communities invisibly &nbsp;<a href="https://conf.researchr.org/track/vlhcc-2023/vlhcc-2023-graduate-consortium#event-overview">Academic conference</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>The first Free and Open Source Software Yearly conference (FOSSY 2023)</h3>
+    <div class="talk-sub">From Conversations to Action: Creating a healthy, diverse open source community &nbsp;<a href="https://2023.fossy.us/speaker/profile/95/">Industrial conference</a></div>
+  </div>
+  <div class="talk-item">
+    <h3>Research talk (ESEC/FSE 2022)</h3>
+    <div class="talk-sub">A Case Study of Implicit Mentoring, its Prevalence, and Impact in Apache (ESEC/FSE 2022) &nbsp;<a href="https://2022.esec-fse.org/track/fse-2022-research-papers#event-overview">Academic Conference</a></div>
+  </div>
+</section>
 
+<section>
+  <div class="section-title">Service &amp; Experience</div>
 
-                            <div class="cv-item">
-                                <h3>The Linux Foundation Open Source Summit North America 2024</h3>
-                                <h4>Beyond Code: Recognizing the Crucial Role of 'Glue Work' in Open Source - Zixuan Feng, Oregon State University & Julia Furst, Veeam </h4>
-                                <li><a href="https://ossna2024.sched.com/event/1aBPg/beyond-code-recognizing-the-crucial-role-of-glue-work-in-open-source-zixuan-feng-oregon-state-university-julia-furst-veeam?iframe=no&w=100%&sidebar=yes&bg=no">Read Abstract</li></a> 
-                                <br />
-                            </div>
+  <div class="service-item">
+    <h3>Research Intern</h3>
+    <h4>Microsoft Research, Redmond, WA, 2024 Summer</h4>
+  </div>
+  <div class="service-item">
+    <h3>Proceeding service</h3>
+    <h4>IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC 2024): Proceedings Chair &nbsp;<a href="https://conf.researchr.org/profile/vlhcc-2024/zixuanfeng">VL/HCC 2024</a></h4>
+  </div>
+  <div class="service-item">
+    <h3>Paper Reviewer</h3>
+    <h4>The ACM (Association of Computing Machinery) CHI conference on Human Factors in Computing Systems, 2024 &nbsp;<a href="https://chi2024.acm.org/">CHI 2024</a></h4>
+  </div>
+  <div class="service-item">
+    <h3>Paper Sub-reviewer</h3>
+    <h4>ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2023)</h4>
+    <h4>46th International Conference on Software Engineering (ICSE 2024)</h4>
+  </div>
+  <div class="service-item">
+    <h3>Graduate Research Assistant</h3>
+    <h4>Summer 2021 - Present</h4>
+    <p>My research focuses on using empirical investigations to gain knowledge of how software developers collaborate. My goal is to design and strategy to build software methodologies that will assist software engineers and teams in becoming more productive.</p>
+  </div>
+  <div class="service-item">
+    <h3>Graduate Teaching Assistant</h3>
+    <h4>Winter 2019 - Summer 2021</h4>
+    <p>Teaching Experience:</p>
+    <ul>
+      <li>CS 453/553 Scientific Visualization</li>
+      <li><a href="https://os2.unexploitable.systems/info.html">CS 444/544 Operating System II</a></li>
+      <li><a href="https://classes.engr.oregonstate.edu/eecs/spring2018/cs458/syllabus_infovis.pdf">CS 458 Information Visualization</a></li>
+      <li><a href="https://catalog.oregonstate.edu/courses/st/">ST 201 Principles of Statistics</a></li>
+    </ul>
+  </div>
+  <div class="service-item">
+    <h3>Graduate Research Assistant</h3>
+    <h4>Summer 2018 - Fall 2020</h4>
+    <p>The project was funded by Oregon Department of Transportation</p>
+    <ul>
+      <li>Data Processing, Analysis, Visualization (Python, Bash, C++, OpenGL, Gephi)</li>
+      <li>Numerical Modeling (Finite Element Analysis, ABAQUS)</li>
+      <li>Statistical Modeling (R programming, MATLAB)</li>
+    </ul>
+    <h4 style="margin-top:6px">Technical Report Submission: see publications</h4>
+  </div>
+  <div class="service-item">
+    <h3>Mentor (High School Students)</h3>
+    <h4>Saturday Academy's Apprenticeships in Science and Engineering Program in affiliation with University of Portland.</h4>
+    <h4>Summer 2021</h4>
+  </div>
+  <div class="service-item">
+    <h3>Mathematics and Computer Science Tutor</h3>
+    <h4>Fall 2017 - Fall 2018</h4>
+    <p>Oregon State University, INTO Learning Center</p>
+    <ul>
+      <li>Mathematics Tutor</li>
+      <li>GRE Quantitative Tutor</li>
+      <li>Academic Writing Tutor</li>
+      <li>Registered TOEFL TEST Proctor</li>
+    </ul>
+  </div>
+</section>
 
+<section>
+  <div class="section-title">Education</div>
+  <div class="edu-item">
+    <div class="edu-year">Fall 2021 – Present</div>
+    <div><div class="edu-deg">Ph.D</div><div class="edu-school">Oregon State University</div></div>
+  </div>
+  <div class="edu-item">
+    <div class="edu-year">Fall 2018 – Spring 2021</div>
+    <div><div class="edu-deg">Master of Engineering, Computer Science</div><div class="edu-school">Oregon State University</div></div>
+  </div>
+  <div class="edu-item">
+    <div class="edu-year">Fall 2013 – Summer 2018</div>
+    <div><div class="edu-deg"><a href="https://files.registrar.oregonstate.edu/sites/default/files/honor-rolls/fall-2016-honor-roll-international.pdf">BS, Computer Science (with Honor)</a></div><div class="edu-school">Oregon State University</div></div>
+  </div>
+</section>
 
-                            
-                            
-                            <div class="cv-item">
-                                <h3>Student Research Competition (SRC) (FSE 2023)</h3>
-                                <h4>The State of Survival in OSS: The Impact of Diversity </h4>
-                                <li><a href="papers\Zixua Feng.pdf">Certificate of Recognition</li></a> 
-                                <br />
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>Linux Plumber Conference (Linux 2023)</h3>
-                                <h4>OSS Empowering Engagement: Introducing a Dynamic Dashboard for Proactive Retention Strategies </h4>
-                                <li><a href="https://lpc.events/event/17/contributions/1562/">Industrial conference</li></a> 
-                                <br />
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>Graduate Consortium (VL/HCC 2024)</h3>
-                                <h4>OSS Unsung Heroes: Crafting Productive Communities invisibly </h4>
-                                <li><a href="https://conf.researchr.org/track/vlhcc-2023/vlhcc-2023-graduate-consortium#event-overview">Academic conference</li></a> 
-                                <br />
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>The first Free and Open Source Software Yearly conference (FOSSY 2023)</h3>
-                                <h4>From Conversations to Action: Creating a healthy, diverse open source community </h4>
-                                <li><a href="https://2023.fossy.us/speaker/profile/95/">Industrial conference</li></a> 
-                                <br />
-                            </div>
-                    
-                             <div class="cv-item">
-                                <h3>Research talk (ESEC/FSE 2022)</h3>
-                                <h4>A Case Study of Implicit Mentoring, its Prevalence, and Impact in Apache (ESEC/FSE 2022)</a></h4>
-                                <li><a href="https://2022.esec-fse.org/track/fse-2022-research-papers#event-overview">Academic Conference</li></a> 
-                                <br/>
-                            </div>
-                    
-                        </div>
-                    </div>
-                    
-                        
-                    <!-- .content - professional profile -->
-                    <div class="content cv-section">
-                        <div class="col-md-3">
-                            <h2>SERVICE & Experience</h2>
-                        </div>
+<footer>
+  <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=rya0-h52NDC5NmtFVKYHTE8GwJV_yLIBUcOM4LOnnXc&cl=ffffff&w=300"></script>
+</footer>
 
-                        <div class="col-md-9">
-                            
-                            <div class="cv-item">
-                                <h3>Research Intern</h3>
-                                <h4>Microsoft Research, Redmond, WA, 2024 Summer</h4>
-                                <br/>
-
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>Proceeding service</h3>
-                                <h4>IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC 2024): Proceedings Chair</h4>
-                                <li><a href="https://conf.researchr.org/profile/vlhcc-2024/zixuanfeng">VL/HCC 2024</li></a> 
-                                <br/>
-
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>Paper Reviewer</h3>
-                                <h4>The ACM (Association of Computing Machinery) CHI conference on Human Factors in Computing Systems, 2024</h4>
-                                <li><a href="https://chi2024.acm.org/">>CHI 2024</li></a> 
-                                <br/>
-
-                            </div>
-                            
-                            <div class="cv-item">
-                                <h3>Paper Sub-reviewer</h3>
-                                <h4>ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2023)</h4>
-                                <br />
-                                <h4>46th International Conference on Software Engineering (ICSE 2024)</h4>
-
-                            </div>
-
-                            
-                            <div class="cv-item">
-                                <h3>Graduate Research Assistant</h3>
-                                <h4>Summer 2021 - Present</h4>
-                                <br />
-                                <ul>
-                                    <p>My research focuses on using empirical investigations to gain knowledge 
-                                        of how software developers collaborate. My goal is to design and strategy 
-                                        to build software methodologies that will assist software engineers and teams in becoming more productive.</p>
-                                </ul>
-                            </div>
-
-
-                            
-                        <!-- <div class="col-md-9"> -->
-                            <div class="cv-item">
-                                <h3>Graduate Teaching Assistant</h3>
-                                <h4>Winter 2019 - Summer 2021</h4>
-                                <br />
-                                <ul>
-                                    <p>Teaching Experience:</p>
-                                    <li>CS 453/553 Scientific Visualization</li>
-                                    <li><a href="https://os2.unexploitable.systems/info.html">CS 444/544 Operating System II</a></li>
-                                    <li><a href="https://classes.engr.oregonstate.edu/eecs/spring2018/cs458/syllabus_infovis.pdf">CS 458 Information Visualization</a></li>
-                                    <li><a href="https://catalog.oregonstate.edu/courses/st/">ST 201 Principles of Statistics </a></li>
-                                </ul>
-                            </div>
-
-                            <div class="cv-item">
-                                <h3>Graduate Research Assistant</h3>
-                                <h4>Summer 2018 - Fall 2020</h4>
-                                <br />
-                                <p>The project was funded by Oregon Department of Transportation</p>
-                                <ul>
-                                    <li>Data Processing, Analysis, Visualization (Python, Bash, C++, OpenGL, Gephi)</li>
-                                    <li>Numerical Modeling (Finite Element Analysis, ABAQUS)</li>
-                                    <li>Statistical Modeling (R programming, MATLAB)</li>
-                                </ul>
-                                <h4>Technical Report Submission: see publications</h4>
-                                <!-- <ul>
-                                    <h3><a href="papers\SPR829Final-RumbleStrips.pdf"><li>Rumble Strips Design Analysis to Contribute to Low Exterior Noise and the Durability of Inland Stripes</a></li>
-                                    <h3><a href="papers\SPR829Final-RumbleStrips.pdf"><li>Literature Survey on Finite Element Method of Structural Acoustic Tire-Pavement Noise</a></li>
-                                </ul> -->
-                            </div>
-
-                            <div class="cv-item">
-                                <h3>Mentor (High School Students)</h3>
-                                <h4>Saturday Academy's Apprenticeships in Science and Engineering Program in affiliation with University of Portland.</h4>
-                                <h4>Summer 2021</h4>
-                                </ul>
-                            </div>
-
-                            <div class="cv-item">
-                                <h3>Mathematics and Computer Science Tutor</h3>
-                                <h4>Fall 2017 - Fall 2018</h4>
-                                <br />
-                                <p>Oregon State University, INTO Learning Center</p>
-                                <ul>
-                                    <li>Mathematics Tutor</li>
-                                    <li>GRE Guantitative Tutor</li>
-                                    <li>Academic Writing Tutor</li>
-                                    <li>Registered TOFEL TEST Proctor</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    
-
-                        <!-- .content - technical skills
-                        <div class="content cv-section hidden-print">
-                            <div class="col-md-3">
-                                <h2>Programming Skills</h2>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="cv-item">
-                                    <div class="col-md-3">
-                                        <div class="pie-chart" data-percent="70">
-                                            <span class="percent"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <h3>R/RStudio</h3>
-                                        <p class="welcome">4 Years</p>
-                                    </div>
-                                </div>
-                                <div class="cv-item">
-                                    <div class="col-md-3">
-                                        <div class="pie-chart" data-percent="70">
-                                            <span class="percent"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <h3>C/C++</h3>
-                                        <p class="welcome">4 Years</p>
-                                    </div>
-                                </div>
-                                <div class="cv-item">
-                                    <div class="col-md-3">
-                                        <div class="pie-chart" data-percent="70">
-                                            <span class="percent"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <h3>Python</h3>
-                                        <p class="welcome"> 2 Years</p>
-                                    </div>
-                                </div>
-                                <div class="cv-item">
-                                    <div class="col-md-3">
-                                        <div class="pie-chart" data-percent="60">
-                                            <span class="percent"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <h3>ABAQUS Numerical Modelling</h3>
-                                        <p class="welcome"> 2 Years</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- .content - technical skills-->
-                        <!-- <div class="content cv-section hidden-print">
-                            <div class="col-md-3">
-                                <h2>Technical Skills</h2>
-                            </div>
-                            <div class="col-md-9 multi-column">
-                                <div class="col-md-4">
-                                    <div class="cv-item">
-                                        <h3>Data Processing</h3>
-                                        <h3>Data Modelling</h3>
-                                        <h3>Data Analyzing</h3>
-                                        <h3>Data Visualization</h3>
-                                        <h3>Software Engineering</h3>
-                                        <h3>Data Mining</h3>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="content cv-section hidden-print">
-                            <div class="col-md-12">
-                                <h2>Portfolio</h2>
-                            </div>
-                            <div class="col-md-12 portfolio">
-                                <a href="media/img/amaze.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/ERpos.PNG');"
-                                   title="Amaze">
-                                </a>
-                                <a href="media/img/gratisography-37h.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/R_vis.png');"
-                                   title="Tree">
-                                </a>
-                                <a href="media/img/gratisography-66h.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/rumble 3.PNG');"
-                                   title="Rose">
-                                </a>
-                                <a href="media/img/gratisography-114h.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/rumble.png');"
-                                   title="Bridge">
-                                </a>
-                                <a href="media/img/gratisography-127h.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/visualization.PNG');"
-                                   title="Castle with bike">
-                                </a>
-                                <a href="media/img/gratisography-135h.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/shader2.PNG');"
-                                   title="Square">
-                                </a>
-                                <a href="media/img/reprocess-on-teresa-bench.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/shader3.PNG');"
-                                   title="Somewhere with bench">
-                                </a>
-                                <a href="media/img/stare.jpg"
-                                   class="col-md-3 col-sm-4 col-xs-12 port-item mfp-zoom"
-                                   style="background-image: url('media/img/rumble5.PNG');"
-                                   title="Stare">
-                                </a>
-                            </div> -->
-                        <!-- </div> -->
-
-                        <!-- .content - portfolio -->
-                        <div class="content cv-section">
-                            <div class="col-md-3">
-                                <h2>Education</h2>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="cv-item">
-                                    <h3>Oregon State University</h3>
-                                    <h4>Fall 2021 - Present</h4>
-                                    <h4>Ph.D </h4>
-                                    <br />
-                                </div>
-                                <div class="cv-item">
-                                    <h3>Oregon State University</h3>
-                                    <h4>Fall 2018 - Spring 2021</h4>
-                                    <h4>Master of Engineering. Compute Science</h4>
-                                    <br />
-                                </div>
-                                <div class="cv-item">
-                                    <h3>Oregon State University</h3>
-                                    <h4>Fall 2013 - Summer 2018</h4>
-                                    <h4><a href="https://files.registrar.oregonstate.edu/sites/default/files/honor-rolls/fall-2016-honor-roll-international.pdf">BS. Compute Science (with Honor)</h4></a> 
-                                    <br/>
-                                </div>
-                            </div>
-                        </div>
-
-                 
-                    <!-- #contact-form-second -->
-                </div>
-                <!-- #footer -->
-            </div>
-            <!-- #page -->
-            
-               
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-            <script type="text/javascript">window.jQuery || document.write('<script src="vendor/jquery/jquery-2.1.3.min.js"><\/script>')</script>
-            <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.22/gmaps.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
-            <script type="text/javascript" src="js/vendor.js"></script>
-            <script type="text/javascript" src="js/script.js"></script>
-<script
-  type="text/javascript"
-  id="clustrmaps"
-  src="//clustrmaps.com/map_v2.js?d=rya0-h52NDC5NmtFVKYHTE8GwJV_yLIBUcOM4LOnnXc&cl=ffffff&w=300">
+<script>
+  var pubsExpanded = false;
+  function togglePubs() {
+    pubsExpanded = !pubsExpanded;
+    document.querySelectorAll('.pub-collapsed').forEach(function(el) {
+      el.style.display = pubsExpanded ? 'block' : 'none';
+    });
+    document.getElementById('pubToggle').textContent = pubsExpanded
+      ? 'Show fewer publications ↑'
+      : 'Show all publications ↓';
+  }
 </script>
-
 </body>
 </html>
